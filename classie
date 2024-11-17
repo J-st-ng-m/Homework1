@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Behavior Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        label, select, input, textarea {
+            display: block;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Behavior Management</h1>
+
+    <!-- Form for submitting points -->
+    <form id="behaviorForm">
+        <label for="student">Select Student:</label>
+        <select id="student" name="student" required>
+            <option value="">--Select a student--</option>
+            <!-- Add options for all 28 students -->
+            <option value="Student 1">Student 1</option>
+            <option value="Student 2">Student 2</option>
+            <!-- Continue adding options up to Student 28 -->
+        </select>
+
+        <label for="behavior">Select Behavior:</label>
+        <select id="behavior" name="behavior" required>
+            <option value="">--Select behavior--</option>
+            <option value="Good">Good</option>
+            <option value="Bad">Bad</option>
+        </select>
+
+        <label for="points">Enter Points (+ or -):</label>
+        <input type="number" id="points" name="points" required>
+
+        <label for="notes">Notes (optional):</label>
+        <textarea id="notes" name="notes" rows="4" cols="50"></textarea>
+
+        <button type="button" onclick="submitForm()">Submit</button>
+    </form>
+
+    <script>
+        function submitForm() {
+            // Here, you can add JavaScript code to send form data to a server or Google Apps Script
+            const formData = {
+                student: document.getElementById('student').value,
+                behavior: document.getElementById('behavior').value,
+                points: document.getElementById('points').value,
+                notes: document.getElementById('notes').value
+            };
+
+            // Log the formData for demonstration
+            console.log(formData);
+
+            // Use `google.script.run` if you integrate with Google Apps Script
+            // google.script.run.processBehaviorForm(formData);
+        }
+    </script>
+</body>
+</html>
